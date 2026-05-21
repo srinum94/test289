@@ -30,7 +30,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("../img/bg-wedding.jpg");
+  background-image: url("../img/bg1.jpg");
   z-index: -1;
   filter: blur(2px);
   /* opacity: 0.5; */
@@ -42,6 +42,7 @@ body {
 .hero h1 {
   font-family: "Caveat Brush", cursive;
   font-size: 7rem;
+  /* color: #fb902c; */
 }
 
 .hero h4 {

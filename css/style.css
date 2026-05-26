@@ -730,6 +730,40 @@ footer li {
   }
 
 }
-
-
 /* Timer code End */
+
+/* ✅ Popup Background */
+.welcome-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ✅ Popup Box */
+.welcome-box {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+}
+
+/* ✅ Text */
+.welcome-box p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* ✅ Button same style */
+.welcome-box .btn {
+  background: var(--pink);
+  color: white;
+}

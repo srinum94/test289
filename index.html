@@ -46,11 +46,11 @@
       class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white"
     >
       <main>
-        <h4 style="display:none">Wedding <span>Invitation of </span></h4>
+        
         <h1>Srinu❤️Eswari</h1>
         <p style="font-size: 22px" >We are getting married in</p>      
         <div class="simply-countdown"></div>
-
+      <h4 style="display: none">Wedding <span>Invitation of </span></h4>
       <div class="btn-wrapper">
         <a href="#home" class="btn btn-lg mt-4" onclick="startExperience()">
           <b>See Invitation..</b>
@@ -62,6 +62,8 @@
 
         <span class="wave"></span>
         <span class="wave delay"></span>
+
+
       </div>
 
 
@@ -422,6 +424,17 @@
     </div>
   </div>
 </div>
+
+<!-- ✅ Personalized Welcome Popup -->
+<div id="welcomePopup" class="welcome-popup">
+  <div class="welcome-box">
+    <p id="welcomeText"></p>
+    <button class="btn btn-lg mt-3" onclick="startExperiencePopup()">
+      See Invitation
+    </button>
+  </div>
+</div>
+
     <script>
     let popupShown = false;
 
@@ -543,6 +556,40 @@ observer.observe(document.getElementById("rsvp"));
       })();
     </script>
 
+<script>
+window.addEventListener("load", function () {
+
+  const urlParam = new URLSearchParams(window.location.search);
+  const name = urlParam.get("n");
+
+  const popup = document.getElementById("welcomePopup");
+  const text = document.getElementById("welcomeText");
+
+  if (name) {
+    // ✅ Create personalized message
+    text.innerHTML = `
+      Dear <b>${name}</b>,<br><br>
+      We are inviting you to our wedding on<br>
+      <b>June 24, 2026</b> at our residence 💐`;
+
+    // ✅ Show popup AFTER loader
+    setTimeout(() => {
+      popup.style.display = "flex";
+      disableScroll(); // keep scroll locked
+    }, 800); // slight delay after loader
+  } else {
+    // ✅ No name → directly allow scroll
+    enableScroll();
+  }
+
+});
+
+function startExperiencePopup() {
+  document.getElementById("welcomePopup").style.display = "none";
+
+  startExperience(); // ✅ THIS IS THE KEY
+}
+</script>
     <script>
       simplyCountdown(".simply-countdown", {
         year: 2026, // required

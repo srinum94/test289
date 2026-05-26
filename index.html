@@ -50,11 +50,22 @@
         <h1>Srinu❤️Eswari</h1>
         <p style="font-size: 22px" >We are getting married in</p>      
         <div class="simply-countdown"></div>
+
+      <div class="btn-wrapper">
         <a href="#home" class="btn btn-lg mt-4" onclick="startExperience()">
-          <!-- See Invitation.. -->
-          <b>See Invitation..
-          </b></a>
-        
+          <b>See Invitation..</b>
+        </a>
+
+        <div class="cursor-icon">
+          <i class="bi bi-cursor-fill"></i>
+        </div>
+
+        <span class="wave"></span>
+        <span class="wave delay"></span>
+      </div>
+
+
+      
       </main>
     </section>
 
@@ -206,24 +217,24 @@
         >
           <div class="col mt-3">
             <a
-              href="img/sr/11.jpg"
+              href="img/sr/1.jpg"
               data-toggle="lightbox"
               data-gallery="my-gallery"
             >
               <img
-                src="img/sr/11.jpg"
+                src="img/sr/1.jpg"
                 class="img-fluid w-100 rounded"
               />
             </a>
           </div>
           <div class="col mt-3">
             <a
-              href="img/sr/11.jpg"
+              href="img/sr/1.jpg"
               data-toggle="lightbox"
               data-gallery="my-gallery"
             >
               <img
-                src="img/sr/11.jpg"
+                src="img/sr/1.jpg"
                 class="img-fluid w-100 rounded"
               />
             </a>
@@ -581,13 +592,21 @@ observer.observe(document.getElementById("rsvp"));
         playAudio();
       }
 
-        function startExperience() {
-          enableScroll();
 
-          // ✅ Show bottom menu
-          const menu = document.getElementById("bottomMenu");
-          menu.classList.add("show-menu");
-      }
+      function startExperience() {
+      enableScroll();
+
+      const menu = document.getElementById("bottomMenu");
+      menu.classList.add("show-menu");
+
+      // ✅ Hide animation
+      document.querySelector(".cursor-icon").style.display = "none";
+      document.querySelectorAll(".wave").forEach(w => w.style.display = "none");
+
+    }
+
+      const mouse = document.querySelector(".mouse");
+      const wave = document.querySelector(".click-wave");     
 
       const sections = document.querySelectorAll("section");
 const menuLinks = document.querySelectorAll(".bottom-menu a");

@@ -214,6 +214,7 @@
 <!-- <iframe width="696" height="391" src="https://www.youtube.com/embed/vA5jXjHNusQ" title="|| Sri Vijaya Studio || Perupalem ||" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
 <div class="ratio ratio-16x9">
   <iframe 
+    id="ytVideo"
     src="https://www.youtube.com/embed/vA5jXjHNusQ"
     title="Wedding Video"
     allowfullscreen>
@@ -751,6 +752,20 @@ song1.src = getRandomSong();
       //   disableScroll();
       // }
       disableScroll();
+
+      const ytVideo = document.getElementById("ytVideo");
+
+    ytVideo.addEventListener("click", () => {
+      if (isPlayingSong) {
+        song.pause();
+
+        // update icon
+        audioIcon.classList.remove("bi-disc");
+        audioIcon.classList.add("bi-pause-circle");
+
+        isPlayingSong = false;
+      }
+    });
     </script>
 
     

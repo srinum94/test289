@@ -212,14 +212,24 @@
             <h2>Gallery</h2>   
             <span>Video and Photo Invitations</span>                 
 <!-- <iframe width="696" height="391" src="https://www.youtube.com/embed/vA5jXjHNusQ" title="|| Sri Vijaya Studio || Perupalem ||" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-<div class="ratio ratio-16x9">
-  <iframe 
-    id="ytVideo"
-    src="https://www.youtube.com/embed/vA5jXjHNusQ"
+<!-- <div class="ratio ratio-16x9">
+  <iframe
+  id="ytVideo"
+  src="https://www.youtube.com/embed/vA5jXjHNusQ?enablejsapi=1"
     title="Wedding Video"
     allowfullscreen>
   </iframe>
-</div>
+</div> -->
+
+<iframe
+  id="ytVideo"
+  class="youtube-player"
+  src="https://www.youtube.com/embed/vA5jXjHNusQ?enablejsapi=1"
+  title="Wedding Video"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
 
           </div>
         </div>
@@ -753,19 +763,32 @@ song1.src = getRandomSong();
       // }
       disableScroll();
 
-      const ytVideo = document.getElementById("ytVideo");
+let player;
 
-    ytVideo.addEventListener("click", () => {
-      if (isPlayingSong) {
-        song.pause();
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("ytVideo", {
+    events: {
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
 
-        // update icon
-        audioIcon.classList.remove("bi-disc");
-        audioIcon.classList.add("bi-pause-circle");
+function onPlayerStateChange(event) {
 
-        isPlayingSong = false;
-      }
-    });
+  // ✅ When video starts playing
+  if (event.data === YT.PlayerState.PLAYING) {
+    if (isPlayingSong) {
+      song.pause();
+
+      audioIcon.classList.remove("bi-disc");
+      audioIcon.classList.add("bi-pause-circle");
+
+      isPlayingSong = false;
+    }
+  }
+
+}
+
     </script>
 
     
@@ -948,6 +971,6 @@ document.getElementById("shareBtn").addEventListener("click", async () => {
 
 });
 </script>
-
+<script src="https://www.youtube.com/iframe_api"></script>
   </body>
 </html>

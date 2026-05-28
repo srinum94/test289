@@ -393,7 +393,7 @@
 
     <div class="audio-container">
       <audio id="song" autoplay loop>
-        <source src="audio/bg-wedding.mp3" type="audio/mp3" />
+        <!-- <source src="audio/DL.mp3" type="audio/mp3" /> -->
       </audio>
       <div class="audio-icon-wrapper" style="display: none">
         <i class="bi bi-disc"></i>
@@ -702,12 +702,32 @@ menuLinks.forEach(link => {
   });
 });
 
+
+// random audio start
+const songs = [
+  "audio/DL.mp3",
+  "audio/MEB.mp3",
+  "audio/GL.mp3",
+  "audio/Hello.mp3"
+];
+
+// ✅ Pick random song
+function getRandomSong() {
+  const randomIndex = Math.floor(Math.random() * songs.length);
+  return songs[randomIndex];
+}
+
+// ✅ Set random song on load
+const song1 = document.querySelector("#song");
+song1.src = getRandomSong();
+
+// random audio end
       const audioIconWrapper = document.querySelector(".audio-icon-wrapper");
       let isPlayingSong = false;
       const song = document.querySelector("#song");
       const audioIcon = document.querySelector(".audio-icon-wrapper i");
       function playAudio() {
-        song.volume = 0.1;
+        song.volume = 0.9;
         audioIconWrapper.style.display = "flex";
         song.play();
         isPlayingSong = true;

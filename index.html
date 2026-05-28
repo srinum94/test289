@@ -112,7 +112,7 @@
             <div class="row">
               <div class="col-4">
                 <img
-                  src="img/couple/user1.jpg"
+                  src="img/couple/user1.jpeg"
                   alt="Rizka"
                   class="img-responsive rounded-circle"
                 />
@@ -211,7 +211,15 @@
             
             <h2>Gallery</h2>   
             <span>Video and Photo Invitations</span>                 
-<iframe width="201" height="113" src="https://www.youtube.com/embed/MaU2K19dyoQ" title="|| Sri Vijaya Studio || Perupalem ||" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<!-- <iframe width="696" height="391" src="https://www.youtube.com/embed/vA5jXjHNusQ" title="|| Sri Vijaya Studio || Perupalem ||" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+<div class="ratio ratio-16x9">
+  <iframe 
+    src="https://www.youtube.com/embed/vA5jXjHNusQ"
+    title="Wedding Video"
+    allowfullscreen>
+  </iframe>
+</div>
+
           </div>
         </div>
         <div
@@ -301,7 +309,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 col-10 text-center">
-            <h2>Connect with us..</h2>
+            <h2>Send your wishes..</h2>
             <!-- <p>Isi form dibawah ini untuk melakukan konfirmasi keharidan.</p> -->
           </div>
         </div>
@@ -568,7 +576,7 @@ window.addEventListener("load", function () {
   if (name) {
     // ✅ Create personalized message
     text.innerHTML = `      
-      Dear <b>${name}</b>,<br><br>
+      Hii <b>${name}</b>,<br><br>
       We are happy to invite you to our wedding 💐<br>
       Please join us on 
       <b>Wednesday 24 June, 2026</b><br>
@@ -866,6 +874,31 @@ window.addEventListener("load", function () {
   }, 500);
 });
 </script>
+<script>
+document.getElementById("shareBtn").addEventListener("click", async () => {
+
+  // ✅ REMOVE query params like ?n=Srinu
+  const cleanUrl = window.location.origin + window.location.pathname;
+
+  const shareData = {
+    title: "Wedding Invitation 💍",
+    text: "You're invited to Srinu ❤️ Eswari Wedding!",
+    url: cleanUrl
+  };
+
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      await navigator.clipboard.writeText(cleanUrl);
+      alert("Link copied! Share it with your friends 😊");
+    }
+  } catch (err) {
+    console.log("Share failed:", err);
+  }
+
+});
+</script>
 
 <!-- ✅ Bottom Sticky Menu -->
 <div id="bottomMenu" class="bottom-menu hidden-menu">
@@ -873,7 +906,11 @@ window.addEventListener("load", function () {
   <a href="#home" data-section="home"><i class="bi bi-calendar-event"></i></a>
   <a href="#info" data-section="info"><i class="bi bi-geo-alt-fill"></i></a>
   <a href="#gallery" data-section="gallery"><i class="bi bi-images"></i></a>
-  <a href="#rsvp" data-section="rsvp"><i class="bi bi-chat-dots"></i></a>
+  <a href="#rsvp" data-section="rsvp"><i class="bi bi-chat-dots"></i></a>  
+<!-- ✅ NEW SHARE BUTTON -->
+  <a href="javascript:void(0);" id="shareBtn">
+    <i class="bi bi-share-fill"></i>
+  </a>
 </div>
 
   </body>
